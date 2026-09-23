@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MT6G56X4');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flujo Progresivo</title>
+    <!-- Esta línea conecta tu diseño -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Página 1: Landing -->
+    <div id="view-landing" class="view active">
+      <h1>Resuelve tu Estatus Migratorio</h1>
+      <p>Descubre tus opciones legales en menos de 2 minutos sin pagar abogados.</p>
+      <button class="btn-primary" onclick="navegar('view-q1', 'landing_page')">Comenzar Evaluación</button>
+    </div>
+
+    <!-- Página 2: Pregunta Filtro (Fit) -->
+    <div id="view-q1" class="view">
+      <div class="progress">Paso 1 de 3</div>
+      <h2>¿Dónde te encuentras actualmente?</h2>
+      <button class="btn-option" onclick="responder('ubicacion', 'Dentro de USA', 'view-q2')">Ya estoy dentro de Estados Unidos</button>
+      <button class="btn-option" onclick="responder('ubicacion', 'Fuera de USA', 'view-q2')">Estoy en mi país de origen</button>
+    </div>
+
+    <!-- Página 3: Pregunta Detalle (Pain Point) -->
+    <div id="view-q2" class="view">
+      <div class="progress">Paso 2 de 3</div>
+      <h2>¿Cuál es tu mayor obstáculo hoy?</h2>
+      <button class="btn-option" onclick="responder('pain_point', 'Costo', 'view-capture')">Los abogados son muy costosos</button>
+      <button class="btn-option" onclick="responder('pain_point', 'Complejidad', 'view-capture')">Miedo a equivocarme en los formularios</button>
+      <button class="btn-option" onclick="responder('pain_point', 'Urgencia', 'view-capture')">Mi estatus vence pronto</button>
+    </div>
+
+    <!-- Página 4: Captura de Datos (SQL) -->
+    <div id="view-capture" class="view">
+      <div class="progress">Último paso</div>
+      <h2>¡Tenemos estrategias para ti!</h2>
+      <p>Ingresa tu correo para guardar tu progreso y ver tus opciones.</p>
+      <input type="email" id="user-email" placeholder="tu@correo.com">
+      <label class="consent">
+        <input type="checkbox" id="user-consent"> Acepto políticas de privacidad
+      </label>
+      <button class="btn-primary" onclick="finalizarCuestionario()">Ver Resultados</button>
+    </div>
+
+    <!-- Página 5: Éxito -->
+    <div id="view-success" class="view">
+      <div class="icon-success">✓</div>
+      <h2>Análisis Completado</h2>
+      <p>Hemos enviado un respaldo a tu correo. Revisa la consola para ver el Payload de Salesforce.</p>
+    </div>
+
+  </div>
+
+  <!-- Esta línea conecta tu lógica (siempre al final del body) -->
+  <script src="script.js"></script>
+</body>
+</html>
